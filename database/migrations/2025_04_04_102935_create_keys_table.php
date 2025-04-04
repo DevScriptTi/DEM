@@ -6,25 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('keys', function (Blueprint $table) {
             $table->id();
-            $table->string('value')->unique();
+            $table->string('value', 10)->unique();
             $table->enum('status', ['used', 'unused'])->default('unused');
-            $table->timestamp('used_at')->nullable();
-            $table->timestamp('expires_at')->nullable();
+            $table->morphs('keyable');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('keys');
     }

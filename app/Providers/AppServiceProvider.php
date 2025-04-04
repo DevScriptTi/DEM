@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Models\Api\Main\Braclet;
-use App\Models\Api\Main\Circle;
-use App\Models\Api\User\Admin;
-use App\Models\Api\User\Gurdian;
+use App\Models\Api\Users\Admin;
+use App\Models\Api\Users\Doctor;
+use App\Models\Api\Users\DoctorHelper;
+use App\Models\Api\Users\Pharmacy;
 use App\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -32,10 +32,10 @@ class AppServiceProvider extends ServiceProvider
 
         Relation::morphMap([
             'admin' => Admin::class,
-            'gurdian' => Gurdian::class,
+            'pharmacy' => Pharmacy::class,
             'user' => User::class ,
-            'braclet' => Braclet::class,
-            'circle' => Circle::class
+            'doctor' => Doctor::class,
+            'doctor-helper' => DoctorHelper::class
         ]);
 
         ResetPassword::createUrlUsing(function (object $notifiable, string $token) {
