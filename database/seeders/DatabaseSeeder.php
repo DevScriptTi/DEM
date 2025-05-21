@@ -2,13 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Api\Extra\Baladya;
-use App\Models\Api\Extra\Wilaya;
-use App\Models\Api\User\Admin;
-use App\Models\Api\User\Gurdian;
-use App\Models\User;
+use App\Models\Api\Users\Admin;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,9 +12,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            WilayasSeeders::class,
-            AlgerianDatabaseSeeder::class,
+        $admin = Admin::create([
+            'username' => 'admin_admin_skjsaf',
+            'name' => 'Admin',
+            'last' => 'Admin',
         ]);
+
+        $key = $admin->key()->create([
+            'value' => str()->random(10),
+        ]);
+
+        $key->user()->create([
+            'email' => 'Admin@gmail.com',
+            'password' => 'password',
+        ]);
+        
+        // $this->call([
+        //     WilayasSeeders::class,
+        //     AlgerianDatabaseSeeder::class,
+        // ]);
     }
 }

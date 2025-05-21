@@ -10,42 +10,54 @@ use Illuminate\Support\Facades\Auth;
 
 class JoinController extends Controller
 {
-    public function register(Request $request){
+    public function
+    register(Request $request)
+    {
         $request->validate([
-            'email' => ["required","email","unique:users,email"],
-            'password' => ["required" , "string"],
-            'key'=>["required", "string","exists:keys,value"]
+            'email' => ["required", "email", "unique:users,email"],
+            'password' => ["required", "string"],
+            'key' => ["required", "string", "exists:keys,value"]
         ]);
 
-        $key = Key::where("value",$request->post('key'))->first();
+        $key = Key::where("value", $request->post('key'))->first();
 
-        if($key->status == "used"){
-            return response()->json(["message"=>"This key is alrdy used"],403);
+        if ($key->status == "used") {
+            return response()->json(["message" => "This key is alrdy used", "errors" => [
+                "key" => ["This key is alrdy used"]
+            ]], 403);
         }
-        $key->user()->create($request->only(['email','password']));
-        return response()->json(["message" => "user registred succes"],200) ;
+        $key->status = "used";
+        $key->save();
+        $key->user()->create($request->only(['email', 'password']));
+        return response()->json(["message" => "user registred succes"], 200);
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
 
         $request->validate([
-            'email' => ["required","email" , "exists:users,email"] ,
-            'password' => ["required","string"]
+            'email' => ["required", "email", "exists:users,email"],
+            'password' => ["required", "string"]
         ]);
 
-        if (!Auth::attempt(['email'=>$request->post('email') , 'password'=>$request->post('password')])) {
-           return response()->json(["user not found"],403) ;
+        if (!Auth::attempt(['email' => $request->post('email'), 'password' => $request->post('password')])) {
+            return response()->json(["message" => "incorrect password", "errors" => [
+                "password" => ["incorrect password"]
+            ]], 403);
         }
 
         $user = Auth::user();
         $user = $user instanceof User ? $user : User::find($user->id);
         $token = $user->createToken('token')->plainTextToken;
-        return response()->json(["token"=>$token],200) ;
-
+        return response()->json([
+            "token" => $token,
+            "user" => $user->load('key.keyable.photo')
+        ], 200);
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         $request->user()->currentAccessToken()->delete();
-        return response()->json(["message"=>"logout success"],200);
+        return response()->json(["message" => "logout success"], 200);
     }
 }

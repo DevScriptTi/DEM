@@ -2,6 +2,7 @@
 
 namespace App\Models\Api\Core;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Key extends Model
@@ -20,5 +21,9 @@ class Key extends Model
     public function keyable()
     {
         return $this->morphTo();
+    }
+
+    public function user(){
+        return $this->hasOne(User::class);
     }
 }
