@@ -3,6 +3,8 @@
 namespace App\Models\Api\Users;
 
 use App\Models\Api\Core\Key;
+use App\Models\Api\Main\Demand;
+use App\Models\Api\Main\Prescription;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,4 +31,14 @@ class Patient extends Model
     public function key(){
         return $this->morphOne(Key::class , 'keyable');
     }
+
+    public function demands()
+    {
+        return $this->hasMany(Demand::class);
+    }
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class);
+    }
+    
 }

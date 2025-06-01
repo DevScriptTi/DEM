@@ -23,84 +23,284 @@ class AlgerianDatabaseSeeder extends Seeder
 {
     // Algerian names data
     private $algerianFirstNames = [
-        'Mohamed', 'Ahmed', 'Ali', 'Youssef', 'Khaled', 'Samir', 'Karim', 'Nadir', 'Farid', 'Bilal',
-        'Fatima', 'Amina', 'Yasmina', 'Leila', 'Samira', 'Nadia', 'Djamila', 'Soraya', 'Zahra', 'Hafsa'
+        'Mohamed',
+        'Ahmed',
+        'Ali',
+        'Youssef',
+        'Khaled',
+        'Samir',
+        'Karim',
+        'Nadir',
+        'Farid',
+        'Bilal',
+        'Fatima',
+        'Amina',
+        'Yasmina',
+        'Leila',
+        'Samira',
+        'Nadia',
+        'Djamila',
+        'Soraya',
+        'Zahra',
+        'Hafsa'
     ];
 
     private $algerianLastNames = [
-        'Benzema', 'Boukheroufa', 'Chaoui', 'Dahmani', 'Ferhat', 'Gacem', 'Hamdi', 'Kadri', 'Larbi', 'Mansouri',
-        'Nait', 'Ouali', 'Rahmani', 'Saadi', 'Taleb', 'Zitouni', 'Abbas', 'Bouchenak', 'Cherif', 'Dridi'
+        'Benzema',
+        'Boukheroufa',
+        'Chaoui',
+        'Dahmani',
+        'Ferhat',
+        'Gacem',
+        'Hamdi',
+        'Kadri',
+        'Larbi',
+        'Mansouri',
+        'Nait',
+        'Ouali',
+        'Rahmani',
+        'Saadi',
+        'Taleb',
+        'Zitouni',
+        'Abbas',
+        'Bouchenak',
+        'Cherif',
+        'Dridi'
     ];
 
     // Medical specialties
     private $specialties = [
-        'Allergology', 'Anesthesiology', 'Cardiology', 'Dermatology', 'Endocrinology',
-        'Gastroenterology', 'Geriatrics', 'Hematology', 'Immunology', 'Infectious Diseases',
-        'Internal Medicine', 'Nephrology', 'Neurology', 'Oncology', 'Ophthalmology',
-        'Otolaryngology', 'Pediatrics', 'Pulmonology', 'Rheumatology', 'Urology',
-        'General Surgery', 'Cardiac Surgery', 'Neurosurgery', 'Orthopedic Surgery', 'Plastic Surgery',
-        'Vascular Surgery', 'Dental Medicine', 'Maxillofacial Surgery', 'Psychiatry', 'Radiology',
-        'Radiotherapy', 'Nuclear Medicine', 'Physical Medicine', 'Sports Medicine', 'Occupational Medicine',
-        'Emergency Medicine', 'Family Medicine', 'Preventive Medicine', 'Pathology', 'Clinical Biology',
-        'Pharmacology', 'Toxicology', 'Gynecology', 'Obstetrics', 'Reproductive Medicine',
-        'Neonatology', 'Andrology', 'Diabetology', 'Hepatology', 'Proctology',
-        'Angiology', 'Phlebology', 'Pneumology', 'Rhinology', 'Stomatology',
-        'Traumatology', 'Venereology', 'Acupuncture', 'Homeopathy', 'Naturopathy',
-        'Osteopathy', 'Chiropractic', 'Podiatry', 'Dietetics', 'Speech Therapy',
-        'Physiotherapy', 'Occupational Therapy', 'Psychology', 'Psychoanalysis', 'Neuropsychology',
-        'Gerontology', 'Palliative Care', 'Pain Management', 'Sleep Medicine', 'Travel Medicine',
-        'Aerospace Medicine', 'Diving Medicine', 'Forensic Medicine', 'Legal Medicine', 'Military Medicine',
-        'Sports Cardiology', 'Pediatric Cardiology', 'Interventional Cardiology', 'Electrophysiology', 'Echocardiography',
-        'Cardiac Imaging', 'Vascular Medicine', 'Hypertension', 'Heart Failure', 'Cardiac Rehabilitation',
-        'Pediatric Surgery', 'Thoracic Surgery', 'Colorectal Surgery', 'Hepatobiliary Surgery', 'Transplant Surgery',
-        'Surgical Oncology', 'Pediatric Oncology', 'Radiation Oncology', 'Medical Oncology', 'Hematologic Oncology'
+        'Allergology',
+        'Anesthesiology',
+        'Cardiology',
+        'Dermatology',
+        'Endocrinology',
+        'Gastroenterology',
+        'Geriatrics',
+        'Hematology',
+        'Immunology',
+        'Infectious Diseases',
+        'Internal Medicine',
+        'Nephrology',
+        'Neurology',
+        'Oncology',
+        'Ophthalmology',
+        'Otolaryngology',
+        'Pediatrics',
+        'Pulmonology',
+        'Rheumatology',
+        'Urology',
+        'General Surgery',
+        'Cardiac Surgery',
+        'Neurosurgery',
+        'Orthopedic Surgery',
+        'Plastic Surgery',
+        'Vascular Surgery',
+        'Dental Medicine',
+        'Maxillofacial Surgery',
+        'Psychiatry',
+        'Radiology',
+        'Radiotherapy',
+        'Nuclear Medicine',
+        'Physical Medicine',
+        'Sports Medicine',
+        'Occupational Medicine',
+        'Emergency Medicine',
+        'Family Medicine',
+        'Preventive Medicine',
+        'Pathology',
+        'Clinical Biology',
+        'Pharmacology',
+        'Toxicology',
+        'Gynecology',
+        'Obstetrics',
+        'Reproductive Medicine',
+        'Neonatology',
+        'Andrology',
+        'Diabetology',
+        'Hepatology',
+        'Proctology',
+        'Angiology',
+        'Phlebology',
+        'Pneumology',
+        'Rhinology',
+        'Stomatology',
+        'Traumatology',
+        'Venereology',
+        'Acupuncture',
+        'Homeopathy',
+        'Naturopathy',
+        'Osteopathy',
+        'Chiropractic',
+        'Podiatry',
+        'Dietetics',
+        'Speech Therapy',
+        'Physiotherapy',
+        'Occupational Therapy',
+        'Psychology',
+        'Psychoanalysis',
+        'Neuropsychology',
+        'Gerontology',
+        'Palliative Care',
+        'Pain Management',
+        'Sleep Medicine',
+        'Travel Medicine',
+        'Aerospace Medicine',
+        'Diving Medicine',
+        'Forensic Medicine',
+        'Legal Medicine',
+        'Military Medicine',
+        'Sports Cardiology',
+        'Pediatric Cardiology',
+        'Interventional Cardiology',
+        'Electrophysiology',
+        'Echocardiography',
+        'Cardiac Imaging',
+        'Vascular Medicine',
+        'Hypertension',
+        'Heart Failure',
+        'Cardiac Rehabilitation',
+        'Pediatric Surgery',
+        'Thoracic Surgery',
+        'Colorectal Surgery',
+        'Hepatobiliary Surgery',
+        'Transplant Surgery',
+        'Surgical Oncology',
+        'Pediatric Oncology',
+        'Radiation Oncology',
+        'Medical Oncology',
+        'Hematologic Oncology'
     ];
 
     // Medicine names
     private $medicines = [
-        'Paracetamol', 'Ibuprofen', 'Amoxicillin', 'Aspirin', 'Omeprazole',
-        'Metformin', 'Atorvastatin', 'Simvastatin', 'Losartan', 'Amlodipine',
-        'Metoprolol', 'Bisoprolol', 'Levothyroxine', 'Prednisone', 'Ciprofloxacin',
-        'Doxycycline', 'Azithromycin', 'Clarithromycin', 'Ceftriaxone', 'Fluconazole',
-        'Tramadol', 'Codeine', 'Morphine', 'Diazepam', 'Alprazolam',
-        'Sertraline', 'Fluoxetine', 'Venlafaxine', 'Duloxetine', 'Quetiapine',
-        'Risperidone', 'Olanzapine', 'Lithium', 'Valproate', 'Carbamazepine',
-        'Phenytoin', 'Gabapentin', 'Pregabalin', 'Sumatriptan', 'Propranolol',
-        'Montelukast', 'Salbutamol', 'Fluticasone', 'Budesonide', 'Formoterol',
-        'Tiotropium', 'Insulin', 'Glimepiride', 'Gliclazide', 'Pioglitazone',
-        'Furosemide', 'Spironolactone', 'Hydrochlorothiazide', 'Warfarin', 'Rivaroxaban',
-        'Clopidogrel', 'Ticagrelor', 'Heparin', 'Enoxaparin', 'Ferrous Sulfate',
-        'Folic Acid', 'Vitamin B12', 'Vitamin D', 'Calcium', 'Magnesium',
-        'Potassium', 'Zinc', 'Selenium', 'Coenzyme Q10', 'Melatonin',
-        'Finasteride', 'Tamsulosin', 'Sildenafil', 'Tadalafil', 'Dutasteride',
-        'Cyproterone', 'Ethinylestradiol', 'Levonorgestrel', 'Medroxyprogesterone', 'Mifepristone',
-        'Misoprostol', 'Clomifene', 'Tamoxifen', 'Letrozole', 'Anastrozole',
-        'Bicalutamide', 'Flutamide', 'Leuprolide', 'Goserelin', 'Octreotide',
-        'Somatropin', 'Desmopressin', 'Hydrocortisone', 'Fludrocortisone', 'Testosterone',
-        'Estradiol', 'Progesterone', 'Thyroxine', 'Liothyronine', 'Propylthiouracil',
-        'Methimazole', 'Calcitonin', 'Teriparatide', 'Zoledronic Acid', 'Alendronic Acid'
+        'Paracetamol',
+        'Ibuprofen',
+        'Amoxicillin',
+        'Aspirin',
+        'Omeprazole',
+        'Metformin',
+        'Atorvastatin',
+        'Simvastatin',
+        'Losartan',
+        'Amlodipine',
+        'Metoprolol',
+        'Bisoprolol',
+        'Levothyroxine',
+        'Prednisone',
+        'Ciprofloxacin',
+        'Doxycycline',
+        'Azithromycin',
+        'Clarithromycin',
+        'Ceftriaxone',
+        'Fluconazole',
+        'Tramadol',
+        'Codeine',
+        'Morphine',
+        'Diazepam',
+        'Alprazolam',
+        'Sertraline',
+        'Fluoxetine',
+        'Venlafaxine',
+        'Duloxetine',
+        'Quetiapine',
+        'Risperidone',
+        'Olanzapine',
+        'Lithium',
+        'Valproate',
+        'Carbamazepine',
+        'Phenytoin',
+        'Gabapentin',
+        'Pregabalin',
+        'Sumatriptan',
+        'Propranolol',
+        'Montelukast',
+        'Salbutamol',
+        'Fluticasone',
+        'Budesonide',
+        'Formoterol',
+        'Tiotropium',
+        'Insulin',
+        'Glimepiride',
+        'Gliclazide',
+        'Pioglitazone',
+        'Furosemide',
+        'Spironolactone',
+        'Hydrochlorothiazide',
+        'Warfarin',
+        'Rivaroxaban',
+        'Clopidogrel',
+        'Ticagrelor',
+        'Heparin',
+        'Enoxaparin',
+        'Ferrous Sulfate',
+        'Folic Acid',
+        'Vitamin B12',
+        'Vitamin D',
+        'Calcium',
+        'Magnesium',
+        'Potassium',
+        'Zinc',
+        'Selenium',
+        'Coenzyme Q10',
+        'Melatonin',
+        'Finasteride',
+        'Tamsulosin',
+        'Sildenafil',
+        'Tadalafil',
+        'Dutasteride',
+        'Cyproterone',
+        'Ethinylestradiol',
+        'Levonorgestrel',
+        'Medroxyprogesterone',
+        'Mifepristone',
+        'Misoprostol',
+        'Clomifene',
+        'Tamoxifen',
+        'Letrozole',
+        'Anastrozole',
+        'Bicalutamide',
+        'Flutamide',
+        'Leuprolide',
+        'Goserelin',
+        'Octreotide',
+        'Somatropin',
+        'Desmopressin',
+        'Hydrocortisone',
+        'Fludrocortisone',
+        'Testosterone',
+        'Estradiol',
+        'Progesterone',
+        'Thyroxine',
+        'Liothyronine',
+        'Propylthiouracil',
+        'Methimazole',
+        'Calcitonin',
+        'Teriparatide',
+        'Zoledronic Acid',
+        'Alendronic Acid'
     ];
 
     public function run()
     {
         // Create admin
-        $this->createAdmin();
+        // $this->createAdmin();
 
         // Create specialties
-        $this->createSpecialties();
+        // $this->createSpecialties();
 
         // Get all wilayas and baladiyas
         $wilayas = Wilaya::all();
         $baladiyas = Baladiya::all();
 
         // Create doctors and their helpers
-        $this->createDoctorsAndHelpers($baladiyas);
+        // $this->createDoctorsAndHelpers($baladiyas);
 
         // Create patients
-        $this->createPatients($baladiyas);
+        // $this->createPatients($baladiyas);
 
         // Create pharmacies
-        $this->createPharmacies($baladiyas);
+        // $this->createPharmacies($baladiyas);
 
         // Get all doctors
         $doctors = Doctor::all();
@@ -109,7 +309,7 @@ class AlgerianDatabaseSeeder extends Seeder
         $this->createQueuesAndDemands($doctors);
 
         // Create prescriptions and medicines
-        $this->createPrescriptionsAndMedicines($doctors);
+        // $this->createPrescriptionsAndMedicines($doctors);
     }
 
     private function createAdmin()
@@ -151,7 +351,7 @@ class AlgerianDatabaseSeeder extends Seeder
                 'status' => rand(0, 1) ? 'online' : 'offline'
             ]);
 
-            if(rand(0, 1)){
+            if (rand(0, 1)) {
                 $doctor->key()->create();
             }
 
@@ -166,7 +366,7 @@ class AlgerianDatabaseSeeder extends Seeder
                 'email' => 'helper_' . Str::slug($baladiya->name) . '@example.com',
                 'doctor_id' => $doctor->id
             ]);
-            if(rand(0, 1)){
+            if (rand(0, 1)) {
                 $doctor_helper->key()->create();
             }
         }
@@ -212,7 +412,7 @@ class AlgerianDatabaseSeeder extends Seeder
                 'email' => 'pharmacy_' . Str::slug($baladiya->name) . '@example.com',
                 'baladiya_id' => $baladiya->id
             ]);
-            if(rand(0, 1)){
+            if (rand(0, 1)) {
                 $pharmacy->key()->create();
             }
         }
@@ -223,34 +423,31 @@ class AlgerianDatabaseSeeder extends Seeder
     private function createQueuesAndDemands($doctors)
     {
         foreach ($doctors as $doctor) {
-            $queueCount = rand(1, 20);
             $patients = Patient::where('baladiya_id', $doctor->baladiya_id)->get();
 
-            for ($i = 0; $i < $queueCount; $i++) {
-                $queue = Queue::create([
-                    'date' => now()->addDays(rand(1, 30))->format('Y-m-d'),
-                    'doctor_id' => $doctor->id
+            $queue = Queue::create([
+                'date' => now()->addDays(rand(0, 7))->format('Y-m-d'),
+                'doctor_id' => $doctor->id
+            ]);
+
+            $demandCount = rand(1, 5);
+            $selectedPatients = $patients->random(min($demandCount, $patients->count()));
+
+            $demands = [];
+            foreach ($selectedPatients as $patient) {
+                $demands[] = Demand::create([
+                    'date' => $queue->date,
+                    'status' => $this->getRandomStatus(),
+                    'queue_id' => $queue->id,
+                    'patient_id' => $patient->id
                 ]);
+            }
 
-                $demandCount = rand(1, 5);
-                $selectedPatients = $patients->random(min($demandCount, $patients->count()));
-
-                $demands = [];
-                foreach ($selectedPatients as $patient) {
-                    $demands[] = Demand::create([
-                        'date' => $queue->date,
-                        'status' => $this->getRandomStatus(),
-                        'queue_id' => $queue->id,
-                        'patient_id' => $patient->id
-                    ]);
-                }
-
-                // Update current demand if there are demands
-                if (count($demands) > 0) {
-                    $queue->update([
-                        'current_demand_id' => $demands[array_rand($demands)]->id
-                    ]);
-                }
+            // Update current demand if there are demands
+            if (count($demands) > 0) {
+                $queue->update([
+                    'current_demand_id' => $demands[array_rand($demands)]->id
+                ]);
             }
         }
 
@@ -259,37 +456,37 @@ class AlgerianDatabaseSeeder extends Seeder
 
     private function createPrescriptionsAndMedicines($doctors)
     {
-    foreach ($doctors as $doctor) {
-        $prescriptionCount = rand(1, 20);
-        $patients = Patient::where('baladiya_id', $doctor->baladiya_id)->get();
-        $pharmacies = Pharmacy::where('baladiya_id', $doctor->baladiya_id)->get();
+        foreach ($doctors as $doctor) {
+            $prescriptionCount = rand(1, 20);
+            $patients = Patient::where('baladiya_id', $doctor->baladiya_id)->get();
+            $pharmacies = Pharmacy::where('baladiya_id', $doctor->baladiya_id)->get();
 
-        // Skip if no patients or pharmacies exist for this doctor's baladiya
-        if ($patients->isEmpty() || $pharmacies->isEmpty()) {
-            continue;
-        }
+            // Skip if no patients or pharmacies exist for this doctor's baladiya
+            if ($patients->isEmpty() || $pharmacies->isEmpty()) {
+                continue;
+            }
 
-        for ($i = 0; $i < $prescriptionCount; $i++) {
-            $prescription = Prescription::create([
-                'date' => now()->subDays(rand(1, 365))->format('Y-m-d'),
-                'pharmacy_id' => $pharmacies->random()->id,
-                'doctor_id' => $doctor->id,
-                'patient_id' => $patients->random()->id
-            ]);
-
-            $medicineCount = rand(1, 3);
-            for ($j = 0; $j < $medicineCount; $j++) {
-                Medicine::create([
-                    'name' => $this->medicines[array_rand($this->medicines)],
-                    'description' => 'Take ' . rand(1, 3) . ' times per day',
-                    'prescription_id' => $prescription->id
+            for ($i = 0; $i < $prescriptionCount; $i++) {
+                $prescription = Prescription::create([
+                    'date' => now()->subDays(rand(1, 365))->format('Y-m-d'),
+                    'pharmacy_id' => $pharmacies->random()->id,
+                    'doctor_id' => $doctor->id,
+                    'patient_id' => $patients->random()->id
                 ]);
+
+                $medicineCount = rand(1, 3);
+                for ($j = 0; $j < $medicineCount; $j++) {
+                    Medicine::create([
+                        'name' => $this->medicines[array_rand($this->medicines)],
+                        'description' => 'Take ' . rand(1, 3) . ' times per day',
+                        'prescription_id' => $prescription->id
+                    ]);
+                }
             }
         }
-    }
 
-    $this->command->info('Prescriptions and medicines created successfully.');
-}
+        $this->command->info('Prescriptions and medicines created successfully.');
+    }
 
     private function getRandomStatus()
     {

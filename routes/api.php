@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\JoinController;
+use App\Http\Controllers\Api\Main\QueueController;
 use App\Models\Api\Core\Wilaya;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+Route::get('queues/landing', [QueueController::class, 'index_doctor']);
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return response()->json([
@@ -15,7 +18,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::middleware('guest.sanctum')->group(function () {
     Route::post('/register', [JoinController::class, 'register']);
     Route::post('/login', [JoinController::class, 'login']);
-    Route::get('wilayas',function(){
+    Route::get('wilayas', function () {
         $wilayas = Wilaya::with('baladiyas')->get();
         return response()->json([
             'message' => 'Wilayas fetched successfully',
@@ -43,6 +46,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     // Doctors Routes
     Route::apiResource('doctors', \App\Http\Controllers\Api\Users\DoctorController::class);
+    Route::post('doctors/{doctor}/generate-key', [\App\Http\Controllers\Api\Users\DoctorController::class, 'createKey']);
+
 
     // Pharmacies Routes
     Route::apiResource('pharmacies', \App\Http\Controllers\Api\Users\PharmacyController::class);
@@ -57,9 +62,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
     // Main Routes
 
     Route::apiResource('queues', \App\Http\Controllers\Api\Main\QueueController::class);
-    Route::apiResource('prescriptions', \App\Http\Controllers\Api\Main\PrescriptionController::class);
-    Route::apiResource('messages', \App\Http\Controllers\Api\Main\MessageController::class);
+    Route::get('queues/doctor-index/all', [QueueController::class, 'doctor_queues']);
+    Route::patch('queues/{queue}/current-demand', [\App\Http\Controllers\Api\Main\QueueController::class, 'current_demand']);
+    Route::post('queues/{demand}/prescriptions', [\App\Http\Controllers\Api\Main\QueueController::class, 'prescriptionStore']);
 });
+
+Route::get('queues/landing', [QueueController::class, 'index_doctor']);
+
 
 
 

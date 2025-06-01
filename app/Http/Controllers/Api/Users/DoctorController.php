@@ -58,6 +58,14 @@ class DoctorController extends Controller
         return response()->json($doctor->load(['baladiya.wilaya', 'key.user', 'photo', 'speciality']));
     }
 
+    public function createKey(Doctor $doctor)
+    {
+        $key = $doctor->key()->create([
+            'value' => str()->random(10),
+        ]);
+        return response()->json($key);
+    }
+
     public function destroy(Doctor $doctor)
     {
         $doctor->delete();

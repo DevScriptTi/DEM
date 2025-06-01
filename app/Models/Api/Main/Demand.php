@@ -2,6 +2,7 @@
 
 namespace App\Models\Api\Main;
 
+use App\Models\Api\Users\Patient;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +14,7 @@ class Demand extends Model
 
     public function patient()
     {
-        return $this->belongsTo(\App\Models\Api\Users\Patient::class);
+        return $this->belongsTo(Patient::class);
     }
 
     public function queue()
